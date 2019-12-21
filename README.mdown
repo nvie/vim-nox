@@ -1,0 +1,3 @@
+vim-nox
+=======
+A syntax highlighter for [Nox](https://github.com/nvie/nox) files.

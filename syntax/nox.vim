@@ -22,6 +22,10 @@ syntax keyword noxKeywords
     \ yield
 syntax match noxKeywords /io func/
 
+" Pattern match syntax should blend in with normal keywords
+syntax match noxKeywords /\v\|/
+syntax match noxKeywords /\v-\>/
+
 " Literals
 syntax match noxFloat "\v<\d+\.\d+>"
 syntax match noxInt "\v<\d+>"
@@ -31,16 +35,17 @@ syntax match noxBool "\v<False>"
 " Too simplistic
 syntax region noxDoubleQuotedString start='\v"' skip='\v\\"' end='\v"' end='\v$' oneline
 syntax region noxSingleQuotedString start="\v'" skip="\v\\'" end="\v'" end='\v$' oneline
-syntax region noxTemplateString start="\v`" skip="\v\\`" end="\v`"
+syntax region noxTemplateString start="\v`" skip="\v\\`" end="\v`" contains=noxInterpolation
 syntax region noxVerbatimTemplateString start="\v``" skip="\v\\`" end="\v``"
 
-" syntax match region noxString start=/"/ skip=/\\"/ end=/"/ oneline contains=noxInterpolatedWrapper
-" syntax match region noxInterpolatedWrapper start="\v\\\(\s*" end="\v\s*\)" contained containedin=noxString contains=noxInterpolatedString
-" syntax match noxInterpolatedString "\v\w+(\(\))?" contained containedin=swiftInterpolatedWrapper
+syntax region noxInterpolation start="\v\{\s*" end="\v\s*\}" end='\v$' contained containedin=noxTemplateString contains=@noxExpr
 
 syntax match noxFunctionCall "\v<[a-z]\w*>\ze\s*\("
-"                                         ^^^ Defines the "end" of the group
+"                                         ^^^ This \ze sets the "end" of the match
 syntax match noxType "\v<[A-Z]\w*>"
+
+" Expression
+syntax cluster noxExpr contains=noxFloat,noxInt,noxBool,noxDoubleQuotedString,noxSingleQuotedString,noxTemplateString,noxVerbatimTemplateString,noxFunctionCall
 
 " Set highlights
 highlight default link noxComment Comment

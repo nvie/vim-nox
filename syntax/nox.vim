@@ -26,6 +26,8 @@ syntax match noxKeywords /io func/
 syntax match noxKeywords /\v\|/
 syntax match noxKeywords /\v-\>/
 
+syntax match noxArrow /\v\=\>/
+
 " Literals
 syntax match noxFloat "\v<\d+\.\d+>"
 syntax match noxInt "\v<\d+>"
@@ -38,7 +40,7 @@ syntax region noxSingleQuotedString start="\v'" skip="\v\\'" end="\v'" end='\v$'
 syntax region noxTemplateString start="\v`" skip="\v\\`" end="\v`" contains=noxInterpolation
 syntax region noxVerbatimTemplateString start="\v``" skip="\v\\`" end="\v``"
 
-syntax region noxInterpolation start="\v\{\s*" end="\v\s*\}" end='\v$' contained containedin=noxTemplateString contains=@noxExpr
+syntax region noxInterpolation start="\v\{\s*" end="\v\s*\}" contained containedin=noxTemplateString contains=@noxExpr
 
 syntax match noxFunctionCall "\v<[a-z]\w*>\ze\s*\("
 "                                         ^^^ This \ze sets the "end" of the match
@@ -59,6 +61,7 @@ highlight default link noxSingleQuotedString String
 highlight default link noxVerbatimTemplateString String
 highlight default link noxTemplateString String
 highlight default link noxType Type
+highlight default link noxArrow Type
 highlight default link noxFunctionCall Function
 highlight default link noxImport Include
 highlight default link noxImportFromClause Include

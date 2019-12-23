@@ -11,11 +11,15 @@ syntax match noxIdentifier "\v<[A-Za-z_$]+>"
 syntax keyword noxTodos TODO XXX FIXME NOTE
 syntax keyword noxKeywords
     \ do
+    \ else
     \ for
     \ from
     \ func
     \ generator
+    \ if
     \ in
+    \ lazy
+    \ mut
     \ mutates
     \ return
     \ while

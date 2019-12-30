@@ -12,7 +12,9 @@ syntax keyword noxTodos TODO XXX FIXME NOTE
 syntax keyword noxKeywords
     \ do
     \ else
+    \ export
     \ for
+    \ forever
     \ from
     \ func
     \ generator

@@ -5,17 +5,47 @@ function! NoxIndent()
   let previousNum = prevnonblank(v:lnum - 1)
   let previous = getline(previousNum)
 
-  if previous =~ "{" && previous !~ "}"
-    if line =~ "}"
-      return indent(previousNum)
-    else
+  let prevOpened = previous =~ "{"
+  let prevClosed = previous =~ "{.*}"
+  let currClosed = line =~ "}"
+
+  if prevOpened && !prevClosed
+    if !currClosed
       return indent(previousNum) + &tabstop
     endif
-  else
-    if line =~ "}"
+  elseif !prevOpened
+    if currClosed
       return indent(previousNum) - &tabstop
-    else
-      return indent(previousNum)
     endif
   endif
+
+  " Comments -------------------------- {{{
+
+  let prevOpened = previous =~ "[/][*]"
+  let prevClosed = previous =~ "[*][/]"
+  let currClosed = line =~ "[*][/]"
+
+  if prevOpened && !prevClosed
+    if !currClosed
+      return indent(previousNum) + 1
+    endif
+  elseif prevClosed && !prevOpened
+      return indent(previousNum) - 1
+  endif
+
+  " }}}
+
+  " Pattern matching ------------------ {{{
+
+  let prevCase = previous =~ '\v^\s*[|}]'
+  let currCase = line =~ '\v^\s*\|'
+  if currCase && !prevCase
+    return indent(previousNum) + &tabstop
+  elseif !currCase && prevCase
+    return indent(previousNum) - &tabstop
+  endif
+
+  " }}}
+
+  return indent(previousNum)
 endfunction

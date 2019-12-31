@@ -20,7 +20,6 @@ syntax keyword noxKeywords
     \ generator
     \ if
     \ in
-    \ lazy
     \ mut
     \ mutates
     \ return

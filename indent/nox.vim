@@ -5,8 +5,17 @@ function! NoxIndent()
   let previousNum = prevnonblank(v:lnum - 1)
   let previous = getline(previousNum)
 
-  " && line !~ ":$"
-  if previous =~ "{" && previous !~ "}" && line !~ "}"
-    return indent(previousNum) + &tabstop
+  if previous =~ "{" && previous !~ "}"
+    if line =~ "}"
+      return indent(previousNum)
+    else
+      return indent(previousNum) + &tabstop
+    endif
+  else
+    if line =~ "}"
+      return indent(previousNum) - &tabstop
+    else
+      return indent(previousNum)
+    endif
   endif
 endfunction

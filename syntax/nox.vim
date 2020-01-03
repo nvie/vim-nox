@@ -1,4 +1,8 @@
-syntax match noxComment "\v\/\/.*$" oneline
+" Help us out with our poor JS muscle memories
+syntax match noxCommonError "\v[!=]\=\zs\="
+syntax match noxCommonError "\v[;]*\s*$"
+
+syntax match noxComment "\v\/\/.*$"
 syntax region noxComment start="/\*" end="\*/" fold
 
 syntax keyword noxImport import skipwhite skipempty nextgroup=noxImportDestructuring,noxImportIdentifier
@@ -70,6 +74,7 @@ highlight default link noxArrow Type
 highlight default link noxFunctionCall Function
 highlight default link noxImport Include
 highlight default link noxImportFromClause Include
+highlight default link noxCommonError Error
 
 " Identifiers aren't that nice
 " highlight default link noxIdentifier Identifier

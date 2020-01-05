@@ -29,6 +29,7 @@ syntax keyword noxKeywords
     \ mut
     \ mutates
     \ return
+    \ type
     \ while
     \ yield
 syntax match noxKeywords /io func/
@@ -55,7 +56,6 @@ syntax region noxInterpolation start="\v\{\s*" end="\v\s*\}" contained contained
 
 syntax match noxFunctionCall "\v<[a-z]\w*>\ze\s*\("
 "                                         ^^^ This \ze sets the "end" of the match
-syntax match noxType "\v<[A-Z]\w*>"
 
 " Expression
 syntax cluster noxExpr contains=noxFloat,noxInt,noxBool,noxDoubleQuotedString,noxSingleQuotedString,noxTemplateString,noxVerbatimTemplateString,noxFunctionCall
@@ -71,7 +71,7 @@ highlight default link noxDoubleQuotedString String
 highlight default link noxSingleQuotedString String
 highlight default link noxVerbatimTemplateString String
 highlight default link noxTemplateString String
-highlight default link noxType Type
+highlight default link noxTypename Type
 highlight default link noxArrow Type
 highlight default link noxFunctionCall Function
 highlight default link noxImport Include

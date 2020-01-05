@@ -29,6 +29,7 @@ syntax keyword noxKeywords
     \ mut
     \ mutates
     \ return
+    \ Self
     \ type
     \ while
     \ yield

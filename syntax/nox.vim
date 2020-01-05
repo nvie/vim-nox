@@ -1,6 +1,7 @@
 " Help us out with our poor JS muscle memories
 syntax match noxCommonError "\v[!=]\=\zs\="
 syntax match noxCommonError "\v[;]*\s*$"
+syntax match noxCommonError "\v<[a-z][A-Za-z0-9_$]*\zs[A-Z][A-Za-z0-9_$]*>"  " unlearn camelCase
 
 syntax match noxComment "\v\/\/.*$"
 syntax region noxComment start="/\*" end="\*/" fold

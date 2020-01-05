@@ -11,7 +11,8 @@ syntax region noxImportDestructuring start="\v\{" end="\v\}" skipwhite skipempty
 syntax match noxImportIdentifier "\v<[A-Za-z_$]+>" skipwhite skipempty contained containedin=noxImport nextgroup=noxImportFromClause
 syntax keyword noxImportFromClause from skipwhite skipempty nextgroup=noxIdentifier
 
-syntax match noxIdentifier "\v<[A-Za-z_$]+>"
+syntax match noxTypeName "\v<[A-Z][a-zA-Z0-9_$]+>"
+syntax match noxIdentifier "\v<[a-z][a-z0-9_$]+>"
 
 syntax keyword noxTodos TODO XXX FIXME NOTE
 syntax keyword noxKeywords

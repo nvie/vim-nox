@@ -31,6 +31,7 @@ syntax keyword noxKeywords
     \ union
     \ while
     \ yield
+    \ _
 syntax match noxKeywords /\vio func/
 
 " Pattern match syntax should blend in with normal keywords

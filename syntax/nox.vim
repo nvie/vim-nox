@@ -41,8 +41,8 @@ syntax match noxKeywords /\v-\>/
 syntax match noxArrow /\v\=\>/
 
 " Literals
-syntax match noxFloat /\v<\d+\.\d+>/
-syntax match noxInt /\v<\d+>/
+syntax match noxInt /\v<\d+(_\d+)*>/
+syntax match noxFloat /\v<\d+(_\d+)*\.\d+(_\d+)*>/
 
 " Too simplistic
 syntax region noxDoubleQuotedString start=/\v"/ skip=/\v\\./ end=/\v"/ end=/\v$/ oneline

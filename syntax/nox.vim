@@ -10,6 +10,10 @@ syntax match noxTypeName /\v<[A-Z][a-zA-Z0-9_$]+>/
 syntax match noxIdentifier /\v<[a-z][a-z0-9_$]+>/
 syntax match noxSymbol /:\v<[A-Z][a-zA-Z0-9_$]+>/
 
+syntax keyword noxSelf
+    \ self
+    \ Self
+
 syntax keyword noxTodos TODO XXX FIXME NOTE contained containedin=noxComment
 syntax keyword noxKeywords
     \ alias
@@ -24,10 +28,10 @@ syntax keyword noxKeywords
     \ generator
     \ if
     \ in
+    \ match
     \ mut
     \ mutates
     \ return
-    \ Self
     \ type
     \ union
     \ while
@@ -70,6 +74,7 @@ highlight default link noxTodos Todo
 highlight default link noxKeywords Keyword
 highlight default link noxFloat Number
 highlight default link noxInt Number
+highlight default link noxSelf Boolean
 highlight default link noxSymbol Boolean
 highlight default link noxDoubleQuotedString String
 highlight default link noxSingleQuotedString String

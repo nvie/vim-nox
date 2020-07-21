@@ -15,6 +15,7 @@ syntax keyword noxKeywords
     \ alias
     \ do
     \ else
+    \ enum
     \ export
     \ for
     \ forever

@@ -22,12 +22,12 @@ syntax keyword noxKeywords
     \ enum
     \ export
     \ for
-    \ forever
     \ from
     \ func
     \ generator
     \ if
     \ in
+    \ loop
     \ match
     \ mut
     \ mutates

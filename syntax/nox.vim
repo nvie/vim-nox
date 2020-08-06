@@ -27,13 +27,14 @@ syntax keyword noxKeywords
     \ generator
     \ if
     \ in
+    \ interface
     \ loop
     \ match
     \ mut
     \ mutates
+    \ record
     \ return
     \ type
-    \ union
     \ while
     \ yield
     \ _

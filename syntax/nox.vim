@@ -34,6 +34,7 @@ syntax keyword noxKeywords
     \ mutates
     \ record
     \ return
+    \ tuple
     \ type
     \ while
     \ yield

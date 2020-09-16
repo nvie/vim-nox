@@ -37,6 +37,7 @@ syntax keyword noxKeywords
     \ tuple
     \ type
     \ while
+    \ with
     \ yield
     \ _
 syntax match noxKeywords /\vio func/

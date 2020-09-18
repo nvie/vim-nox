@@ -32,9 +32,7 @@ syntax keyword noxKeywords
     \ match
     \ mut
     \ mutates
-    \ record
     \ return
-    \ tuple
     \ type
     \ while
     \ with
